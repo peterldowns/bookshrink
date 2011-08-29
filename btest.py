@@ -1,15 +1,10 @@
-from bottle import route, run
-import pystache
-
+from bottle import route, run, view
 
 class index():
 	@route('/', 'GET')
-	def get():
-		return '<h1>Hello.</h1>'
-
-class greeter():
-	@route('/greet/:name#.+#', 'GET')
-	def get(name):
-		return pystache.render('<h1>Hello, {{person}}!</h1>', {'person':name})
+	@route('/:name#.+#', 'GET')
+	@view('index')
+	def get(name="Stranger"):
+		return dict(name=name)
 
 run(host='localhost', port=8080)
