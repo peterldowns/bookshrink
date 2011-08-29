@@ -4,8 +4,8 @@ import pystache
 
 class index():
 	@route('/', 'GET')
-	def get(self):
-		return render.index()
+	def get():
+		return '<h1>Hello.</h1>'
 
 class greeter():
 	@route('/greet/:name#.+#', 'GET')
