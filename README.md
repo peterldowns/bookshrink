@@ -1,5 +1,5 @@
-###Bookshrink###
-#*Find the essence*#
+#Bookshrink#
+##Find the essence##
 
 ##What is it?##
 A website which picks out the most representative sentences from some amount of text - say, a research paper, or a book, or an essay, or *whatever*.
