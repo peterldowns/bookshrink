@@ -1,0 +1,6 @@
+.dropbox
+*.pyc
+log.txt
+*~
+*.swp
+*.DS

@@ -1,0 +1,119 @@
+/* CSS Resets */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,q,small,strong,sub,sup,dl,dt,dd,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;margin:0;padding:0}article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object{display:block}a img{border:0}figure{position:relative}figure img{width:100%}
+
+
+/* The 1140px Grid by Andy Taylor – http://cssgrid.net – http://www.twitter.com/andytlr – http://www.catchingzebra.com */
+
+.container {
+padding-left: 20px;
+padding-right: 20px;
+}
+
+h1,h2,h3,h4,h5,h6{
+	margin-top: 5px;
+	/*color: #0000ff;*/
+	color: #000000;
+}
+p,li{
+	color: #E67300;
+}
+
+.highlight{
+	/*background-color: #FFE085;*/
+	display: inline;
+}
+a {
+	font-weight: bold;
+	color: #3291d3;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #5face2;
+}
+
+.row {
+width: 100%;
+max-width: 1140px;
+/*margin: 0 auto;*/
+overflow: hidden;
+margin-bottom: 20px;
+}
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+margin-right: 3.8%;
+float: left;
+/*position: relative;
+display: inline;
+*/
+}
+
+.onecol {
+width: 4.85%;
+}
+
+.twocol {
+width: 13.5%;
+}
+
+.threecol {
+width: 22.15%;
+}
+
+.fourcol {
+width: 30.8%;
+}
+
+.fivecol {
+width: 39.45%;
+}
+
+.sixcol {
+width: 48.1%;
+}
+
+.sevencol {
+width: 56.75%;
+}
+
+.eightcol {
+width: 65.4%;
+}
+
+.ninecol {
+width: 74.05%;
+}
+
+.tencol {
+width: 82.7%;
+}
+
+.elevencol {
+width: 91.35%;
+}
+
+.twelvecol {
+width: 100%;
+float: left;
+}
+
+.last {
+margin-right: 0px;
+}
+
+img, object, embed {
+max-width: 100%;
+}
+
+body{
+	background-image:url(bg.png);
+	background-repeat: repeat-x;
+	font-family: 'Lato', arial, serif;
+	background-color: #FFFFFF;
+}
+
+
+#output{
+	color:#000000;
+}
