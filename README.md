@@ -12,9 +12,9 @@ Maybe it would be useful for anyone who needs to skim through a large amount of 
 
 ##Who?##
 Me: Peter Downs
-(email) peter.l.downs@gmail.com
-(github) github.com/peterldowns/
-(twitter) @peterldowns
+* (email) peter.l.downs@gmail.com
+* (github) github.com/peterldowns/
+* (twitter) @peterldowns
 
 ##How?##
 Right now I'm being lazy, read the code!
