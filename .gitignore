@@ -3,4 +3,4 @@
 log.txt
 *~
 *.swp
-*.DS
+*.DS_Store

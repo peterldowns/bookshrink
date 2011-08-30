@@ -70,4 +70,5 @@ class index():
 			output = errorstring
 		return output
 
-run(host='localhost', port=8080, reloader=True)
+if __name__ == '__main__':
+	run(host='localhost', port=8080)
