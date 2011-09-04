@@ -7,7 +7,7 @@ class sentenceAnalyzer():
 		s = re.sub(r'[^a-zA-Z]', ' ', s) # remove everything that isn't an alphabet character (only interested in words, not numbers or punctuation)
 		s = re.sub(r'\s+', ' ', s) # change multiple whitespace in a row to a single space
 		return s
-	def __init__(self, input_string=None, seed_string=None, uselemmat=False, usepunkt=False):
+	def __init__(self, input_string=None, seed_string=None):
 		# Set up the input string
 		if input_string is not None:
 			self.inputstr = (input_string)
@@ -24,40 +24,16 @@ class sentenceAnalyzer():
 		# according to http://www.duboislc.org/EducationWatch/First100Words.html
 		self.commonstr = "mr mrs ms dr the of and a to in is you that it he was for on are as with his they i at be this have from or one had by word but not what all were we when your can said there use an each which she do how their if will up other about out many then them these so some her would make like him into time has look two more write go see number no way could people my than first water been call who oil its now find long down day did get come made may part am let"
 		self.radical_mod_method = False
-		self.uselemmat = uselemmat # whether not to try to lemmatize the text
-		self.usepunkt = usepunkt # whether or not to use the PunktSentenceTokenizer to split sentences
 
 	def analyze(self, input_string=None):
 		if input_string is not None:
 			self.inputstr = input_string # holds the actual input
 		""" SPLIT INPUT INTO SENTENCES"""
-		if self.usepunkt:
-			from nltk.tokenize.punkt import PunktSentenceTokenizer
-			tokenizer = PunktSentenceTokenizer()
-			self.sentences = tokenizer.tokenize(self.inputstr.strip())
-		else:
-			god_awful_regex = r'''(?<!\d)(?<![A-Z]\.)(?<!\.[a-z]\.)(?<!\.\.\.)(?<!etc\.)(?<![Mm]r\.)(?<![Pp]rof\.)(?<![Dd]r\.)(?<![Mm]rs\.)(?<![Mm]s\.)(?<![Mm]z\.)(?<![Mm]me\.)(?:(?<=[.!?])|(?<=[.!?]['"]))[\s]+?(?=[\S])'''
-			self.sentences = re.split(god_awful_regex, self.inputstr.strip())
+		god_awful_regex = r'''(?<!\d)(?<![A-Z]\.)(?<!\.[a-z]\.)(?<!\.\.\.)(?<!etc\.)(?<![Mm]r\.)(?<![Pp]rof\.)(?<![Dd]r\.)(?<![Mm]rs\.)(?<![Mm]s\.)(?<![Mm]z\.)(?<![Mm]me\.)(?:(?<=[.!?])|(?<=[.!?]['"]))[\s]+?(?=[\S])'''
+		self.sentences = re.split(god_awful_regex, self.inputstr.strip())
 
 		""" GET JUST THE WORDS OUT OF THE TEXT """
-		if self.uselemmat:
-			from nltk.stem.wordnet import WordNetLemmatizer
-			_wnl = WordNetLemmatizer() # create a lemmatizer instance only once
-			def lmtz(orig, l): # string, lemmatizer instance
-				instr = orig.lower()
-				types = ['n', 'v', 'a', 'r'] # noun, verb, adjective, adverb
-				outstr = instr
-				for t in types:
-					tmp = l.lemmatize(instr, t)
-					if (tmp != instr): # if we've successfully lemmatized to a different word
-						outstr = tmp
-						break
-				if orig.istitle():
-					outstr = outstr.title()
-				return outstr
-			self.words = [lmtz(x, _wnl) for x in self.clean(self.inputstr).split()]
-		else:
-			self.words = self.clean(self.inputstr).split()
+		self.words = self.clean(self.inputstr).split()
 		""" ASSIGN EACH WORD A FREQUENCY """
 		self.wfreq = {} # keeps track of word frequencies
 		for word in self.words:
@@ -83,10 +59,7 @@ class sentenceAnalyzer():
 			s_words = 0 # number of words in the sentence
 			for s_word in sentence.split():
 				try: # the word may be 'the' or 'and' or something not in the dictionary
-					if self.uselemmat:
-						s_sum += self.wfreq[lmtz(s_word, _wnl)]
-					else:
-						s_sum += self.wfreq[s_word]
+					s_sum += self.wfreq[s_word]
 				except: pass 
 				s_words += 1
 			if s_words == 0:

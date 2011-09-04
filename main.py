@@ -51,19 +51,7 @@ class index():
 		result_type = postvars['result_type']
 		
 		try:
-			uselemmat = postvars['uselemmat'] # if we can access this variable, then it's true
-			uselemmat = True
-		except:
-			uselemmat = False
-
-		try:
-			usepunkt = postvars['usepunkt'] # if we can access this variable, then it's true
-			usepunkt = True
-		except:
-			usepunkt = False
-		
-		try:
-			sa = sp.sentenceAnalyzer(input_string, seed_string, uselemmat, usepunkt)
+			sa = sp.sentenceAnalyzer(input_string, seed_string)
 			sa.analyze()
 			output = sa.get_results(result_type, num_results)
 		except:
