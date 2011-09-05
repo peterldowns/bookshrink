@@ -1,7 +1,7 @@
 # change working directory so relative paths (and template lookup) work again
 #os.chdir(os.path.dirname(__file__))
 
-from bottle import route, request, run, view, static_file # web framework
+from bottle import route, request, view, static_file, default_app # web framework
 import urllib2 # for downloading links
 import sp # sentence analyzing logic
 
@@ -57,6 +57,4 @@ class index():
 			output = errorstring
 		return output
 
-#if __name__ == '__main__':
-	#run(host='localhost', port=8080)
-application = bottle.default_app()
+application = default_app()
