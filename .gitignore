@@ -1,3 +1,4 @@
+.gitignore
 .dropbox
 *.pyc
 log.txt
