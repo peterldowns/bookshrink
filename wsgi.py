@@ -1,5 +1,5 @@
 # change working directory so relative paths (and template lookup) work again
-os.chdir(os.path.dirname(__file__))
+#os.chdir(os.path.dirname(__file__))
 
 from bottle import route, request, run, view, static_file # web framework
 import urllib2 # for downloading links
