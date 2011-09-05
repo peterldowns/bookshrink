@@ -21,17 +21,13 @@
 				var r_t = jQuery("select#result_type").val();
 				var n_r = jQuery("select#num_results").val();
 				var s_s = jQuery("input#seed_string").val();
-				var u_l = jQuery("input#use_lemmat:checked").val();
-				var u_p = jQuery("input#use_punkt:checked").val();
 				jQuery.ajax({
 					type: "POST",
 					timeout: 60000,
 					data: {	input_string : i_s,
 							result_type : r_t,
 							num_results : n_r,
-							seed_string : s_s,
-							uselemmat : u_l,
-							usepunkt: u_p},
+							seed_string : s_s},
 					success: function(data) {
 						jQuery('#output').html(data).hide().fadeIn(1500);
 					},
@@ -116,10 +112,6 @@
 					<br>
 					<p>Pre-weighted words (optional; comma-separated):</p>
 					<input type="text" size=50 id="seed_string" />
-					<br>
-					<input type="checkbox" id="use_lemmat" value="True">Break words down to roots for analysis (experimental)</input>
-					<br>
-					<input type="checkbox" id="use_punkt" value="True">Use an alternative sentence splitting algorithm</input>
 				</div>
 			</center></div>
 			
