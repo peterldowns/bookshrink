@@ -149,11 +149,15 @@
 				<p>Try copying any of these links into the input box above</p>	
 				<br>
 				<p>&mdash; <a href="http://www.bookshrink.com/static/ihaveadream.txt">"I Have A Dream"</a></p>
-				<p>&mdash; <a href="http://www.gutenberg.org/cache/epub/1342/pg1342.txt">Pride and Prejudice</a></p>
-				<p>&mdash; <a href="http://www.gutenberg.org/cache/epub/236/pg236.txt">The Jungle Book</a></p>
-				<p>&mdash; <a href="http://www.gutenberg.org/cache/epub/3300/pg3300.txt">An Inquiry into the Nature and Causes of the Wealth of Nations</a></p>
-				<p>&mdash; <a href="http://www.gutenberg.org/cache/epub/6130/pg6130.txt">The Iliad</a></p>
-				<p>&mdash; <a href="http://www.gutenberg.org/files/521/521-0.txt">Robinson Crusoe</a></p>
+				<p>&mdash; <a
+				href="http://www.bookshrink.com/static/prideandprejudice.txt"">Pride and Prejudice</a></p>
+				<p>&mdash; <a
+				href="http://www.bookshrink.com/static/thejunglebook.txt">The Jungle Book</a></p>
+				<p>&mdash; <a
+				href="http://www.bookshrink.com/static/wealthofnations.txt">An Inquiry into the Nature and Causes of the Wealth of Nations</a></p>
+				<p>&mdash; <a href="http://www.bookshrink.com/static/theiliad.txt">The Iliad</a></p>
+				<p>&mdash; <a
+				href="http://www.bookshrink.com/static/robinsoncrusoe.txt">Robinson Crusoe</a></p>
 				<p>&mdash; <a href="http://www.bookshrink.com/static/obamastateofunion2011.txt">2011 State of the Union Address</a></p>
 			</div>
 			<div class="fourcol last">
