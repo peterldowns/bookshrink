@@ -106,8 +106,8 @@
 					<select id="result_type" size="1">
 						<option value="paragraph">Show sentences as a paragraph</option>
 						<option value="individual">Show sentences individually</option>
-						<option selected value="frequency">Show sentences with relative frequencies</option>
-						<option value="highlight">Show original input with highlighted text</option>
+						<option value="frequency">Show sentences with relative frequencies</option>
+						<option selected value="highlight">Show original input with highlighted text</option>
 					</select>
 					<br>
 					<p>Pre-weighted words (optional; comma-separated):</p>
