@@ -11,7 +11,7 @@ I'm interested in natural language processing - more than anything, bookshrink
 scratches my own itch. It's also useful for skimming through large amounts of
 text to pick up the main ideas.
 
-###How do I get started?###
+###How do I use it?###
 
 You can see bookshrink in action at
 [bookshrink.com](http://bookshrink.com), where I'm currently
