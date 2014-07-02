@@ -2,13 +2,13 @@
 
 .PHONY: clean
 
-default: dev-server
+default: dev
 
-dev-server: venv/bin/activate
+dev: venv/bin/activate
 	. venv/bin/activate && ./runserver.py
 
-server: venv/bin/activate
-	. venv/bin/activate && nohup ./runserver.py script args >stdout.log 2>stderr.log&
+prod: venv/bin/activate
+	. venv/bin/activate && BOOKSHRINK_PRODUCTION=1 nohup ./runserver.py script args >stdout.log 2>stderr.log&
 
 venv venv/bin/activate: requirements.txt clean
 	test -d venv || virtualenv venv --no-site-packages
