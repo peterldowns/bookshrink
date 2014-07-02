@@ -4,7 +4,7 @@ import os
 import urllib2
 from bottle import route, request, view, static_file, default_app, debug
 
-import sp # sentence analyzing logic
+import analysis # sentence analyzing logic
 
 
 DEVELOPMENT = not os.environ.get('BOOKSHRINK_PRODUCTION')
@@ -53,18 +53,24 @@ class index():
         result_type = postvars['result_type']
 
         try:
-            sa = sp.SentenceAnalyzer(seed_string)
+            sa = analysis.SentenceAnalyzer(seed_string)
             sa.analyze(input_string)
             output = sa.get_results(result_type, num_results)
         except:
-            output = errorstring
+            if DEVELOPMENT:
+                raise
+            else:
+                output = errorstring
+
         return output
+
 
 if __name__ == '__main__':
     from bottle import run
     application = default_app()
     run(application,
         server='paste',
-        host='0.0.0.0',
-        port=8081,
-        reloader=DEVELOPMENT)
+        host='127.0.0.1',
+        port=8080,
+        reloader=DEVELOPMENT,
+        debug=DEVELOPMENT)
