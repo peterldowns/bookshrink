@@ -4,3 +4,5 @@ log.txt
 *~
 *.swp
 *.DS_Store
+std*.log
+venv/
