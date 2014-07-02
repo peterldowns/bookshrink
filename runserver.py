@@ -40,14 +40,14 @@ class index():
 				input_string = response.read()
 			except:
 				input_string = postvars['input_string'] # it wasn't a valid link, so revert to what the user entered
-		
+
 		seed_string = postvars['seed_string']
 		if seed_string == "":
-			seed_string = None 
+			seed_string = None
 
 		num_results = float(postvars['num_results'])
 		result_type = postvars['result_type']
-		
+
 		try:
 			sa = sp.sentenceAnalyzer(input_string, seed_string)
 			sa.analyze()
@@ -58,4 +58,4 @@ class index():
 
 application = default_app()
 from bottle import run
-run(application, server='paste', host='127.0.0.1', port=8080)
+run(application, server='paste', host='0.0.0.0', port=8081)

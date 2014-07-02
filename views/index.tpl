@@ -146,25 +146,21 @@
 				<h3>Where can I get texts?</h3>
 				<p><a href="http://www.gutenberg.org/browse/scores/top">Project Gutenberg</a> is an excellent resource for full books in the public domain.</p>
 				<br>
-				<p>Try copying any of these links into the input box above</p>	
+				<p>Try copying any of these links into the input box above:</p>	
 				<br>
-				<p>&mdash; <a href="http://www.bookshrink.com/static/ihaveadream.txt">"I Have A Dream"</a></p>
-				<p>&mdash; <a
-				href="http://www.bookshrink.com/static/prideandprejudice.txt"">Pride and Prejudice</a></p>
-				<p>&mdash; <a
-				href="http://www.bookshrink.com/static/thejunglebook.txt">The Jungle Book</a></p>
-				<p>&mdash; <a
-				href="http://www.bookshrink.com/static/wealthofnations.txt">An Inquiry into the Nature and Causes of the Wealth of Nations</a></p>
-				<p>&mdash; <a href="http://www.bookshrink.com/static/theiliad.txt">The Iliad</a></p>
-				<p>&mdash; <a
-				href="http://www.bookshrink.com/static/robinsoncrusoe.txt">Robinson Crusoe</a></p>
-				<p>&mdash; <a href="http://www.bookshrink.com/static/obamastateofunion2011.txt">2011 State of the Union Address</a></p>
+                <ul>
+                    <li><a href="http://www.bookshrink.com/static/ihaveadream.txt">"I Have A Dream"</a></li>
+                    <li><a href="http://www.bookshrink.com/static/prideandprejudice.txt"">Pride and Prejudice</a></li>
+                    <li><a href="http://www.bookshrink.com/static/thejunglebook.txt">The Jungle Book</a></li>
+                    <li><a href="http://www.bookshrink.com/static/wealthofnations.txt">An Inquiry into the Nature and Causes of the Wealth of Nations</a></li>
+                    <li><a href="http://www.bookshrink.com/static/theiliad.txt">The Iliad</a></li>
+                    <li><a href="http://www.bookshrink.com/static/robinsoncrusoe.txt">Robinson Crusoe</a></li>
+                    <li><a href="http://www.bookshrink.com/static/obamastateofunion2011.txt">2011 State of the Union Address</a></li>
+                </ul>
 			</div>
 			<div class="fourcol last">
 				<h3>Who made this?</h3>
-				<b><p>Peter Downs</p></b>
-				<p>&mdash; peter.l.downs (at) gmail</p>
-				<p>&mdash; <a style="font-size: 11pt;" href="http://twitter.com/#!/peterldowns">@peterldowns</a></p>
+				<p><a href="http://peterdowns.com">Peter Downs</a></p>
 				<br>	
 				<h3>With what?</h3>
 				<p> <a href="http://python.org/">Python</a>, <a href="http://webpy.org/">web.py</a>, <a href="http://www.nltk.org">NLTK</a>, <a href="http://jquery.org/">JQuery</a>, <a href="http://cssgrid.net/">1140.css</a>, <a href="http://code.google.com/p/sexybuttons/">sexybuttons</a>, <a href="http://www.vim.org/">vim</a>, and <a href="http://www.photoshop.com/">Adobe Photoshop</a>.
@@ -173,12 +169,8 @@
 				<h3>Why?</h3>
 				<p>I'm interested in computational linguistics. It's interesting to consider what exactly makes a sentence important, and if it's even possible to find an objective measure of 'meaningfulness'.</p>
 				<br>
-				<h3>Like This?</h3>
-				<p>If so, you should let people know!</p>
-				<br><center>
-				<!--http://sharethis.com nonsense -->
-				<span class='st_twitter_vcount' displayText='Tweet'><span class='st_facebook_vcount' displayText='Facebook'></span><span class='st_slashdot_vcount' displayText='Slashdot'></span><span class='st_digg_vcount' displayText='Digg'></span>
-				</center>
+				<h3>Want to learn more?</h3>
+                <p><a href="http://github.com/peterldowns/bookshrink">Check out the code on GitHub!</a></p>
 			</div>
 		</div> <!-- row -->
 	</div> <!-- container -->

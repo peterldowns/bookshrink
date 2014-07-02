@@ -10,13 +10,15 @@ padding-left: 20px;
 padding-right: 20px;
 }
 
+ul {
+    margin-left: 1em;
+}
+
 h1,h2,h3,h4,h5,h6{
 	margin-top: 5px;
-	/*color: #0000ff;*/
-	color: #000000;
 }
-p,li{
-	color: #E67300;
+h1,h2,h3,h4,h5,h6,p,li{
+	color: #300000;
 }
 
 .highlight{
