@@ -4,10 +4,42 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,addre
 
 
 /* The 1140px Grid by Andy Taylor – http://cssgrid.net – http://www.twitter.com/andytlr – http://www.catchingzebra.com */
+.header {
+    text-align: center;
+    background: #cc0000;
+    max-width: 100% !important;
+}
+
+::-webkit-input-placeholder {
+    font-size: 16px;
+    padding: 10px;
+}
+:-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder, 
+:-ms-input-placeholder, 
+::-input-placeholder {
+    font-size: 16px;
+    color: black;
+}
+#title, #tagline {
+    color: white;
+    padding: 20px;
+}
+#title {
+    font-size: 40px;
+    padding-bottom: 0;
+}
+#tagline {
+    padding-top: 5px;
+    font-size: 20px;
+}
 
 .container {
 padding-left: 20px;
 padding-right: 20px;
+margin: auto;
+max-width: 1140px;
 }
 
 ul {
@@ -46,9 +78,6 @@ margin-bottom: 20px;
 .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
 margin-right: 3.8%;
 float: left;
-/*position: relative;
-display: inline;
-*/
 }
 
 .onecol {
@@ -109,10 +138,8 @@ max-width: 100%;
 }
 
 body{
-	background-image:url(bg.png);
 	background-repeat: repeat-x;
-	font-family: 'Lato', arial, serif;
-	background-color: #FFFFFF;
+	font-family: 'Open Sans', Arial, sans-serif;
 }
 
 

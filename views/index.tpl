@@ -4,24 +4,36 @@
 	<title>bookshrink</title>
 	<meta name="description" content="finds the essence of any book or text" />
 	<meta name="keywords" content="book, shrink, essence, summary, summarize, text, tf-idf" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/static/1140.css" />
    	<link rel="stylesheet" type="text/css" href="/static/sexybuttons.css" />
-	<link href='http://fonts.googleapis.com/css?family=lato:regular,regularitalic,bold,bolditalic' rel='stylesheet' type='text/css'>
 
-	<script type="text/javascript" src="../static/jquery.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-21305179-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol ? 'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga, s);})();
 	</script>
 	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			jQuery("#analyze").click(function() {
-				jQuery("#input_header").removeClass("twelvecol last").addClass("sixcol");
-				jQuery("#output_header").addClass("sixcol last").show();
-				var i_s = jQuery("textarea#input_string").val();
-				var r_t = jQuery("select#result_type").val();
-				var n_r = jQuery("select#num_results").val();
-				var s_s = jQuery("input#seed_string").val();
-				jQuery.ajax({
+		$(document).ready(function() {
+            var $input_string = $('#input_string');
+            var $analyze_button = $('#analyze');
+            $input_string.on('keyup', function() {
+                console.log('keyup');
+                var val = $input_string.val();
+                console.log('val:', val);
+                if (val.length > 0) {
+                    $analyze_button.removeAttr('disabled');
+                } else {
+                    $analyze_button.attr('disabled', true);
+                }
+            });
+			$analyze_button.click(function() {
+				$("#input_header").removeClass("twelvecol last").addClass("sixcol");
+				$("#output_header").addClass("sixcol last").show();
+				var i_s = $("textarea#input_string").val();
+				var r_t = $("select#result_type").val();
+				var n_r = $("select#num_results").val();
+				var s_s = $("input#seed_string").val();
+				$.ajax({
 					type: "POST",
 					timeout: 60000,
 					data: {	input_string : i_s,
@@ -29,7 +41,7 @@
 							num_results : n_r,
 							seed_string : s_s},
 					success: function(data) {
-						jQuery('#output').html(data).hide().fadeIn(1500);
+						$('#output').html(data).hide().fadeIn(1500);
 					},
 					error : function(obj, stat, err) {
 						var desc = "";
@@ -45,23 +57,23 @@
 						else if(stat === "parsererror"){
 							desc = "The result was unable to be parsed.";
 						}
-						jQuery('#output').html("<h3>Error: "+desc+"</h3><br><p>Please try a different text.</p>").hide().fadeIn(1000);
+						$('#output').html("<h3>Error: "+desc+"</h3><br><p>Please try a different text.</p>").hide().fadeIn(1000);
 					},
 				});
 				return false;
 			});
-			jQuery("#output_header").hide();
-			jQuery('#loading')
+			$("#output_header").hide();
+			$('#loading')
 				.hide()  // hide it initially
     			.ajaxStart(function() {
-					jQuery("#loading").delay(500).show(); // delay some time so it doesn't always flicker up
+					$("#loading").delay(500).show(); // delay some time so it doesn't always flicker up
 				})
 				.ajaxStop(function() {
-					jQuery("#loading").hide();
+					$("#loading").hide();
 				});
-			jQuery("#toggle_output_options")
-			jQuery("#toggle_output_options").click(function(){jQuery("#output_options").fadeToggle(500);});
-			jQuery("#output_options")
+			$("#toggle_output_options")
+			$("#toggle_output_options").click(function(){$("#output_options").fadeToggle(500);});
+			$("#output_options")
 				.hide(); // hide the extra options initially
 			});
 	</script>
@@ -71,19 +83,19 @@
 </head>
 
 <body>
+    <div class="row header"><a href="http://www.bookshrink.com/">
+        <div id='title'>Bookshrink</div>
+        <div id='tagline'>Find the Essence</div>
+    </a></div>
 	<div class="container">
-		<div class="row">
-			<center><a href="http://www.bookshrink.com/"><img src="/static/logo.png" /></a></center>
-    	</div>
     	<div class="row">
     		<div id="input_header" class="twelvecol last"><center>
-				<h2>Paste text or link here</h2>
-				<p>Links must point to a .txt file</p>
 				<div style="scroll;">
-					<textarea id="input_string" rows="25" cols="55"></textarea>
+					<textarea id="input_string" rows="20" cols="55"
+                      placeholder="Paste any text or a link to a .txt file, then press 'Analyze My Text!'"></textarea>
     			</div>
     			<br>
-				<button id="analyze" class="sexybutton sexysimple sexyred sexyxxxl">Analyze my text !</button>
+				<button id="analyze" disabled class="sexybutton sexysimple sexyred sexyxxxl">Analyze my text !</button>
 				<br>
 				<br>
 				<div id="toggle_output_options">
@@ -106,8 +118,8 @@
 					<select id="result_type" size="1">
 						<option value="paragraph">Show sentences as a paragraph</option>
 						<option value="individual">Show sentences individually</option>
-						<option value="frequency">Show sentences with relative frequencies</option>
-						<option selected value="highlight">Show original input with highlighted text</option>
+						<option selected value="frequency">Show sentences with relative frequencies</option>
+						<option value="highlight">Show original input with highlighted text</option>
 					</select>
 					<br>
 					<p>Pre-weighted words (optional; comma-separated):</p>
@@ -126,6 +138,7 @@
 				<div id="output"></div>
 			</div>
 		</div> <!-- row -->
+        <hr class="row"></hr>
 		<div class="row">
 			<div class="fourcol">
 				<h3>How does the program work?</h3>
