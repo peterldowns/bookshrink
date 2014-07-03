@@ -18,7 +18,7 @@ sudo cp haproxy.cfg /etc/haproxy/haproxy.cfg
 
 ```
 sudo service haproxy start
-make server
+make prod
 ```
 
 Now visit your server on port 80!
