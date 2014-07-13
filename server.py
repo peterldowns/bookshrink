@@ -33,9 +33,11 @@ class index():
             <h3>or</h3> <h4>&mdash; some amount of text that is at least one
             sentence long</h4> <em><p>This is a sentence.</p></em>
             """
-        #postvars = web.input()
         postvars = request.forms
         input_string = postvars['input_string']
+        if not input_string:
+            return errorstring
+
         if input_string[-4:] == '.txt' and len(input_string.split('\n')) == 1:
             if input_string[0:7] != 'http://':
                 input_string = 'http://'+input_string
