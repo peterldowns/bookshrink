@@ -31,6 +31,31 @@ class SentenceAnalyzer():
     # The darkest possible highlight color for a sentence when outputting
     # highlighted HTML.
     darkest_highlight_hex = '#FF0F0F'
+    # A simple regex for splitting text into sentences, ignoring some common
+    # abbreviations, numbers, and other phrases that also use a '.' to mean
+    # something other than the end of a sentence. In my experience this works
+    # well enough to compare favorably with the NLTK sentence splitter.
+    sentence_splitter = re.compile(
+            r'''(?<!\d)
+                (?<![A-Z]\.)
+                (?<!\.[a-z]\.)
+                (?<!\.\.\.)
+                (?<!etc\.)
+                (?<![Mm]r\.)
+                (?<![Pp]rof\.)
+                (?<![Dd]r\.)
+                (?<![Mm]rs\.)
+                (?<![Mm]s\.)
+                (?<![Mm]z\.)
+                (?<![Mm]me\.)
+                (?:
+                    (?<=[.!?])|
+                    (?<=[.!?]['"])
+                )
+                [\s]+?
+                (?=[\S])''',
+            re.VERBOSE)
+
 
     def __init__(self, seed_string=None):
         # Allow an optional, comma-separated string of words to be given extra
@@ -46,10 +71,8 @@ class SentenceAnalyzer():
     def analyze(self, input_string):
         self.inputstr = input_string
 
-        # Step 1: split the input into sentences using a naïve regex. In my
-        # experience this works well enough.
-        god_awful_regex = r'''(?<!\d)(?<![A-Z]\.)(?<!\.[a-z]\.)(?<!\.\.\.)(?<!etc\.)(?<![Mm]r\.)(?<![Pp]rof\.)(?<![Dd]r\.)(?<![Mm]rs\.)(?<![Mm]s\.)(?<![Mm]z\.)(?<![Mm]me\.)(?:(?<=[.!?])|(?<=[.!?]['"]))[\s]+?(?=[\S])'''
-        self.sentences = re.split(god_awful_regex, self.inputstr.strip())
+        # Step 1: split the input into sentences.
+        self.sentences = self.sentence_splitter.split(self.inputstr.strip())
 
         # Count each unique word's frequency in the input text.
         self.words = clean(self.inputstr).split()
