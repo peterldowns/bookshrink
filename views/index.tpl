@@ -17,9 +17,7 @@
             var $input_string = $('#input_string');
             var $analyze_button = $('#analyze');
             $input_string.on('keyup', function() {
-                console.log('keyup');
                 var val = $input_string.val();
-                console.log('val:', val);
                 if (val.length > 0) {
                     $analyze_button.removeAttr('disabled');
                 } else {
@@ -92,7 +90,7 @@
     		<div id="input_header" class="twelvecol last"><center>
 				<div style="scroll;">
 					<textarea id="input_string" rows="20" cols="55"
-                      placeholder="Paste any text or a link to a .txt file, then press 'Analyze My Text!'"></textarea>
+                      placeholder="Paste any text or a link to a .txt file"></textarea>
     			</div>
     			<br>
 				<button id="analyze" disabled class="sexybutton sexysimple sexyred sexyxxxl">Analyze my text !</button>
