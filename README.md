@@ -20,7 +20,7 @@ hosting the "canonical" instance. If you'd like to explore the code locally, do 
 ```bash
 $ git clone https://github.com/peterldowns/bookshrink.git
 $ cd bookshrink
-$ make dev-server
+$ make
 ```
 
 Then, in your browser, visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
