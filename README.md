@@ -23,4 +23,4 @@ $ cd bookshrink
 $ make dev-server
 ```
 
-Then, in your browserver, visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
+Then, in your browser, visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
