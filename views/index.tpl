@@ -16,14 +16,6 @@
 		$(document).ready(function() {
             var $input_string = $('#input_string');
             var $analyze_button = $('#analyze');
-            $input_string.on('keyup', function() {
-                var val = $input_string.val();
-                if (val.length > 0) {
-                    $analyze_button.removeAttr('disabled');
-                } else {
-                    $analyze_button.attr('disabled', true);
-                }
-            });
 			$analyze_button.click(function() {
 				$("#input_header").removeClass("twelvecol last").addClass("sixcol");
 				$("#output_header").addClass("sixcol last").show();
@@ -93,7 +85,7 @@
                       placeholder="Paste any text or a link to a .txt file"></textarea>
     			</div>
     			<br>
-				<button id="analyze" disabled class="sexybutton sexysimple sexyred sexyxxxl">Analyze my text !</button>
+				<button id="analyze" class="sexybutton sexysimple sexyred sexyxxxl">Analyze my text !</button>
 				<br>
 				<br>
 				<div id="toggle_output_options">
