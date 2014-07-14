@@ -4,14 +4,21 @@
 	<title>bookshrink</title>
 	<meta name="description" content="finds the essence of any book or text" />
 	<meta name="keywords" content="book, shrink, essence, summary, summarize, text, tf-idf" />
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/static/1140.css" />
    	<link rel="stylesheet" type="text/css" href="/static/sexybuttons.css" />
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-21305179-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol ? 'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga, s);})();
-	</script>
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-21305179-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 	<script type="text/javascript">
 		$(document).ready(function() {
             var $input_string = $('#input_string');
@@ -68,8 +75,6 @@
 			});
 	</script>
 
-	<!-- for sharing with sharethis.com -->
-	<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'22f9d0a5-e552-495e-b682-3c7d07f3587d'});</script>
 </head>
 
 <body>
@@ -153,7 +158,7 @@
 				<br>
                 <ul>
                     <li><a href="http://www.bookshrink.com/static/ihaveadream.txt">"I Have A Dream"</a></li>
-                    <li><a href="http://www.bookshrink.com/static/prideandprejudice.txt"">Pride and Prejudice</a></li>
+                    <li><a href="http://www.bookshrink.com/static/prideandprejudice.txt">Pride and Prejudice</a></li>
                     <li><a href="http://www.bookshrink.com/static/thejunglebook.txt">The Jungle Book</a></li>
                     <li><a href="http://www.bookshrink.com/static/wealthofnations.txt">An Inquiry into the Nature and Causes of the Wealth of Nations</a></li>
                     <li><a href="http://www.bookshrink.com/static/theiliad.txt">The Iliad</a></li>
