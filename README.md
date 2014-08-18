@@ -3,8 +3,8 @@
 ###What is it?###
 Bookshrink is a tool for picking out the most representative sentences from
 some amount of text. It works well on research papers, books, and newspaper
-articles. It isn't all that good at understnding poetry. It will do its best on
-any type of text you care to run through it.
+articles. It isn't all that good at understanding poetry. It will do its best
+on any type of text you care to run through it.
 
 ###Why did you make this?###
 I'm interested in natural language processing - more than anything, bookshrink
@@ -13,9 +13,9 @@ text to pick up the main ideas.
 
 ###How do I use it?###
 
-You can see bookshrink in action at
-[bookshrink.com](http://bookshrink.com), where I'm currently
-hosting the "canonical" instance. If you'd like to explore the code locally, do this:
+You can see bookshrink in action at [bookshrink.com](http://bookshrink.com),
+where I'm currently hosting the "canonical" instance. If you'd like to explore
+the code locally, do this:
 
 ```bash
 $ git clone https://github.com/peterldowns/bookshrink.git
