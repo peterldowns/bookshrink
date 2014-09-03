@@ -11,7 +11,7 @@ def clean(s):
     # Collapse whitespace in any amount or type (tabs, newlines, etc.) into
     # a single space.
     s = re.sub(r'\s+', ' ', s)
-    return s
+    return s.strip()
 
 
 class SentenceAnalyzer():
@@ -49,10 +49,10 @@ class SentenceAnalyzer():
                 (?<![Mm]me\.)
                 (?:
                     (?<=[.!?])|
-                    (?<=[.!?]['"])
+                    (?<=[.!?]['"\(\)\[\]])
                 )
                 [\s]+?
-                (?=[\S])''',
+                (?=[^a-z0-9])''',
             re.VERBOSE)
 
 
