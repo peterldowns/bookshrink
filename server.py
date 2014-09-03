@@ -7,7 +7,7 @@ from bottle import route, request, view, static_file, default_app, debug
 import analysis # sentence analyzing logic
 
 
-DEVELOPMENT = not os.environ.get('BOOKSHRINK_PRODUCTION')
+DEVELOPMENT = not os.environ.get('BOOKSHRINK_PRODUCTION') or True
 
 class static_files():
     # serves any static files
@@ -34,7 +34,8 @@ class index():
             sentence long</h4> <em><p>This is a sentence.</p></em>
             """
         postvars = request.forms
-        input_string = postvars['input_string']
+        input_string = postvars['input_string'].strip()
+        print 'input_string:', repr(input_string)
         if not input_string:
             return errorstring
 
@@ -47,6 +48,7 @@ class index():
             except:
                 # it wasn't a valid link, so revert to what the user
                 # entered
+                print 'Error fetching:', repr(input_string)
                 input_string = postvars['input_string']
 
         seed_string = postvars['seed_string'] or None

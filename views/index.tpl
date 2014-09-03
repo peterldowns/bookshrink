@@ -68,7 +68,6 @@
 				.ajaxStop(function() {
 					$("#loading").hide();
 				});
-			$("#toggle_output_options")
 			$("#toggle_output_options").click(function(){$("#output_options").fadeToggle(500);});
 			$("#output_options")
 				.hide(); // hide the extra options initially
