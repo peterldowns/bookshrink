@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 import os
+import re
 import urllib2
 from bottle import route, request, view, static_file, default_app, debug
 
 import analysis # sentence analyzing logic
 
 
-DEVELOPMENT = not os.environ.get('BOOKSHRINK_PRODUCTION') or True
+DEVELOPMENT = not os.environ.get('BOOKSHRINK_PRODUCTION')
+
 
 class static_files():
     # serves any static files
@@ -29,27 +31,23 @@ class index():
             <h3 style="color:#CC0000">Analysis could not be completed.</h3>
             <h4>For the program to work, the input needs to be</h4> <h4>&mdash;
             a valid link to a .txt file</h4>
-            <em><p>http://www.bookshrink.com/static/ihaveadream.txt</p></em>
+            <em><p>http://bookshrink.com/static/ihaveadream.txt</p></em>
             <h3>or</h3> <h4>&mdash; some amount of text that is at least one
             sentence long</h4> <em><p>This is a sentence.</p></em>
             """
         postvars = request.forms
         input_string = postvars['input_string'].strip()
-        print 'input_string:', repr(input_string)
         if not input_string:
             return errorstring
 
-        if input_string[-4:] == '.txt' and len(input_string.split('\n')) == 1:
-            if input_string[0:7] != 'http://':
-                input_string = 'http://'+input_string
-            try:
-                response = urllib2.urlopen(input_string)
-                input_string = response.read()
-            except:
-                # it wasn't a valid link, so revert to what the user
-                # entered
-                print 'Error fetching:', repr(input_string)
-                input_string = postvars['input_string']
+        if re.match(r'https?://[^\n]+\.txt', input_string):
+          try:
+              response = urllib2.urlopen(input_string)
+              input_string = response.read()
+          except:
+              # it wasn't a valid link, so revert to what the user
+              # entered
+              input_string = postvars['input_string']
 
         seed_string = postvars['seed_string'] or None
 
