@@ -60,24 +60,23 @@
 				return false;
 			});
 			$("#output_header").hide();
-			$('#loading')
-				.hide()  // hide it initially
-    			.ajaxStart(function() {
-					$("#loading").delay(500).show(); // delay some time so it doesn't always flicker up
-				})
-				.ajaxStop(function() {
-					$("#loading").hide();
+			$('#loading').hide()
+			$("#output_options").hide();
+      $(document).ajaxStart(function() {
+					$("#loading").delay(100).show();
+				}).ajaxStop(function() {
+					$("#loading").delay(100).hide();
 				});
-			$("#toggle_output_options").click(function(){$("#output_options").fadeToggle(500);});
-			$("#output_options")
-				.hide(); // hide the extra options initially
-			});
+			$("#toggle_output_options").click(function(){
+        $("#output_options").fadeToggle(500);
+      });
+		});
 	</script>
 
 </head>
 
 <body>
-    <div class="row header"><a href="http://www.bookshrink.com/">
+    <div class="row header"><a href="http://bookshrink.com/">
         <div id='title'>Bookshrink</div>
         <div id='tagline'>Find the Essence</div>
     </a></div>
@@ -96,6 +95,13 @@
 					<a>Toggle Advanced Options</a>
 				</div>
 				<div id="output_options">
+					<select id="result_type" size="1">
+						<option value="paragraph">Show sentences as a paragraph</option>
+						<option value="individual">Show sentences individually</option>
+						<option selected value="frequency">Show sentences with relative frequencies</option>
+						<option value="highlight">Show original input with highlighted text</option>
+					</select>
+					<br>
 					<select id="num_results" size="1">
 						%for i in range(10, 30, 5):
 							<option value=.{{i}}>{{i}} % of input</option>
@@ -107,13 +113,6 @@
 						%for i in range(16, 21):
 							<option value={{i}}>{{i}} sentences</option>
 						%end
-					</select>
-					<br>
-					<select id="result_type" size="1">
-						<option value="paragraph">Show sentences as a paragraph</option>
-						<option value="individual">Show sentences individually</option>
-						<option selected value="frequency">Show sentences with relative frequencies</option>
-						<option value="highlight">Show original input with highlighted text</option>
 					</select>
 					<br>
 					<p>Pre-weighted words (optional; comma-separated):</p>
@@ -156,13 +155,13 @@
 				<p>Try copying any of these links into the input box above:</p>	
 				<br>
                 <ul>
-                    <li><a href="http://www.bookshrink.com/static/ihaveadream.txt">"I Have A Dream"</a></li>
-                    <li><a href="http://www.bookshrink.com/static/prideandprejudice.txt">Pride and Prejudice</a></li>
-                    <li><a href="http://www.bookshrink.com/static/thejunglebook.txt">The Jungle Book</a></li>
-                    <li><a href="http://www.bookshrink.com/static/wealthofnations.txt">An Inquiry into the Nature and Causes of the Wealth of Nations</a></li>
-                    <li><a href="http://www.bookshrink.com/static/theiliad.txt">The Iliad</a></li>
-                    <li><a href="http://www.bookshrink.com/static/robinsoncrusoe.txt">Robinson Crusoe</a></li>
-                    <li><a href="http://www.bookshrink.com/static/obamastateofunion2011.txt">2011 State of the Union Address</a></li>
+                    <li><a href="http://bookshrink.com/static/ihaveadream.txt">"I Have A Dream"</a></li>
+                    <li><a href="http://bookshrink.com/static/prideandprejudice.txt">Pride and Prejudice</a></li>
+                    <li><a href="http://bookshrink.com/static/thejunglebook.txt">The Jungle Book</a></li>
+                    <li><a href="http://bookshrink.com/static/wealthofnations.txt">An Inquiry into the Nature and Causes of the Wealth of Nations</a></li>
+                    <li><a href="http://bookshrink.com/static/theiliad.txt">The Iliad</a></li>
+                    <li><a href="http://bookshrink.com/static/robinsoncrusoe.txt">Robinson Crusoe</a></li>
+                    <li><a href="http://bookshrink.com/static/obamastateofunion2011.txt">2011 State of the Union Address</a></li>
                 </ul>
 			</div>
 			<div class="fourcol last">
