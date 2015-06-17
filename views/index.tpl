@@ -119,7 +119,7 @@
 					<input type="text" size=50 id="seed_string" />
 				</div>
 			</center></div>
-			
+
 			<div id="output_header" class="">
 				<center>
 					<div id="loading">
@@ -142,17 +142,17 @@
 				<br><p>&mdash; So that longer sentences aren't favored and shorter sentences aren't punished, the sentence scores are then normalized by length.</p>
 				<br><p>&mdash; The sentences are sorted by their scores.</p>
 				<br><p>&mdash; Finally, depending on what type of output is asked for, the program spits out the results.</p>
-		
+
 			</div>
 			<div class="fourcol">
-			
+
 				<h3>What does this do?</h3>
 				<p>The program tries to pick out the sentences of an input text that are most representative of the text as a whole; that is to say, find the essence of a text.</p>
 				<br>
 				<h3>Where can I get texts?</h3>
 				<p><a href="http://www.gutenberg.org/browse/scores/top">Project Gutenberg</a> is an excellent resource for full books in the public domain.</p>
 				<br>
-				<p>Try copying any of these links into the input box above:</p>	
+				<p>Try pasting text from any of these links into the input box above:</p>
 				<br>
                 <ul>
                     <li><a href="http://bookshrink.com/static/ihaveadream.txt">"I Have A Dream"</a></li>
@@ -167,7 +167,7 @@
 			<div class="fourcol last">
 				<h3>Who made this?</h3>
 				<p><a href="http://peterdowns.com">Peter Downs</a></p>
-				<br>	
+				<br>
 				<h3>With what?</h3>
 				<p> <a href="http://python.org/">Python</a>, <a href="http://webpy.org/">web.py</a>, <a href="http://www.nltk.org">NLTK</a>, <a href="http://jquery.org/">JQuery</a>, <a href="http://cssgrid.net/">1140.css</a>, <a href="http://code.google.com/p/sexybuttons/">sexybuttons</a>, <a href="http://www.vim.org/">vim</a>, and <a href="http://www.photoshop.com/">Adobe Photoshop</a>.
 				<br>

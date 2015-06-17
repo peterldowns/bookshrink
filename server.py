@@ -40,15 +40,6 @@ class index():
         if not input_string:
             return errorstring
 
-        if re.match(r'https?://[^\n]+\.txt', input_string):
-          try:
-              response = urllib2.urlopen(input_string)
-              input_string = response.read()
-          except:
-              # it wasn't a valid link, so revert to what the user
-              # entered
-              input_string = postvars['input_string']
-
         seed_string = postvars['seed_string'] or None
 
         num_results = float(postvars['num_results'])
