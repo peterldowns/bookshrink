@@ -90,7 +90,7 @@ class SentenceAnalyzer():
         for word in self.word_weights:
             # Modify proper noun weights.
             if word.istitle() and not word.isupper():
-                self.word_weights[word] *= 2
+                self.word_weights[word] *= 1.2
             # Modify weights of words that appear in the optional list of
             # important words passed when the analyzer was created.
             if self.seeds is not None and word.lower() in self.seeds:
@@ -129,7 +129,7 @@ class SentenceAnalyzer():
                 try:
                     self.scores[sentence] = float(self.scores[sentence])/3
                 except: pass
-            elif length > self.av_length*1.5: # reward longer self.sentences
+            elif length > self.av_length*1.2: # reward longer self.sentences
                 try:
                     self.scores[sentence] = self.scores[sentence]*3
                 except: pass
