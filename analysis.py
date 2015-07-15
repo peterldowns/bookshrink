@@ -35,7 +35,7 @@ class SentenceAnalyzer():
     # something other than the end of a sentence. In my experience this works
     # well enough to compare favorably with the NLTK sentence splitter.
     sentence_splitter = re.compile(
-            r'''(?<!\d)
+            ur'''(?<!\d)
                 (?<![A-Z]\.)
                 (?<!\.[a-z]\.)
                 (?<!\.\.\.)
@@ -49,7 +49,7 @@ class SentenceAnalyzer():
                 (?<![Mm]me\.)
                 (?:
                     (?<=[.!?])|
-                    (?<=[.!?]['"\(\)\[\]])
+                    (?<=[.!?]['"“”\(\)\[\]])
                 )
                 [\s]+?
                 (?=[^a-z0-9])''',
@@ -69,6 +69,8 @@ class SentenceAnalyzer():
 
     def analyze(self, input_string):
         self.inputstr = input_string
+        if not isinstance(self.inputstr, unicode):
+            self.inputstr = self.inputstr.decode('utf8')
 
         # Step 1: split the input into sentences.
         self.sentences = self.sentence_splitter.split(self.inputstr.strip())
